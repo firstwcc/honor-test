@@ -1,69 +1,42 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import Login from '../views/Login.vue'
-import Main from '../views/Main.vue'
-import CategoryEdit from '../views/CategoryEdit.vue'
-import CategoryList from '../views/CategoryList.vue'
-
-import ItemEdit from '../views/ItemEdit.vue'
-import ItemList from '../views/ItemList.vue'
-
-import HeroEdit from '../views/HeroEdit.vue'
-import HeroList from '../views/HeroList.vue'
-
-import ArticleEdit from '../views/ArticleEdit.vue'
-import ArticleList from '../views/ArticleList.vue'
-
-import AdEdit from '../views/AdEdit.vue'
-import AdList from '../views/AdList.vue'
-
-import AdminUserEdit from '../views/AdminUserEdit.vue'
-import AdminUserList from '../views/AdminUserList.vue'
 
 Vue.use(VueRouter)
 
   const routes = [
-  {path:'/login',name:'login',component:Login,meta:{isPublic:true}},
+  {path:'/login',name:'login',component:import('../views/Login/Login.vue'),meta:{isPublic:true}},
   {
     path: '/',
     name: 'Main',
-    component: Main,
+    component: import('../views/Main.vue'),
     children:[
-      {path:"/categories/create",component:CategoryEdit},
+      {path:"/categories/create",component:import('../views/Category/CategoryEdit.vue')},
       //点击编辑跳转到CategoryEdit页面，即使用相同的Category页面组件，
       //props表示"/categories/edit/:id"里的参数都注入到CategoryEdit页面里
-      {path:"/categories/edit/:id",component:CategoryEdit,props:true},
-      {path:'/categories/list',component:CategoryList},
+      {path:"/categories/edit/:id",component:import('../views/Category/CategoryEdit.vue'),props:true},
+      {path:'/categories/list',component:import('../views/Category/CategoryList.vue')},
       
-      {path:'/items/create',component:ItemEdit},
-      {path:'/items/edit/:id',component:ItemEdit,props:true},
-      {path:'/items/list',component:ItemList},
+      {path:'/items/create',component:import('../views/Item/ItemEdit.vue')},
+      {path:'/items/edit/:id',component:import('../views/Item/ItemEdit.vue'),props:true},
+      {path:'/items/list',component:import('../views/Item/ItemList.vue')},
 
-      {path:'/heroes/create',component:HeroEdit},
-      {path:'/heroes/edit/:id',component:HeroEdit,props:true},
-      {path:'/heroes/list',component:HeroList},
+      {path:'/heroes/create',component:import('../views/Hero/HeroEdit.vue')},
+      {path:'/heroes/edit/:id',component:import('../views/Hero/HeroEdit.vue'),props:true},
+      {path:'/heroes/list',component:import('../views/Hero/HeroList.vue')},
 
-      {path:'/articles/create',component:ArticleEdit},
-      {path:'/articles/edit/:id',component:ArticleEdit,props:true},
-      {path:'/articles/list',component:ArticleList},
+      {path:'/articles/create',component:import('../views/Article/ArticleEdit.vue')},
+      {path:'/articles/edit/:id',component:import('../views/Article/ArticleEdit.vue'),props:true},
+      {path:'/articles/list',component:import('../views/Article/ArticleList.vue')},
 
-      {path:'/ads/create',component:AdEdit},
-      {path:'/ads/edit/:id',component:AdEdit,props:true},
-      {path:'/ads/list',component:AdList},
+      {path:'/ads/create',component:import('../views/Ad/AdEdit.vue')},
+      {path:'/ads/edit/:id',component:import('../views/Ad/AdEdit.vue'),props:true},
+      {path:'/ads/list',component:import('../views/Ad/AdList.vue')},
 
-      {path:'/admin_users/create',component:AdminUserEdit},
-      {path:'/admin_users/edit/:id',component:AdminUserEdit,props:true},
-      {path:'/admin_users/list',component:AdminUserList},
+      {path:'/admin_users/create',component:import('../views/AdminUser/AdminUserEdit.vue')},
+      {path:'/admin_users/edit/:id',component:import('../views/AdminUser/AdminUserEdit.vue'),props:true},
+      {path:'/admin_users/list',component:import('../views/AdminUser/AdminUserList.vue')},
   ]
-  },
-  {
-    path: '/about',
-    name: 'About',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/About.vue')
-  },
+  }
 ]
 
 const router = new VueRouter({
