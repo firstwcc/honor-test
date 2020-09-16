@@ -1,0 +1,8 @@
+{
+    "px-to-rem.px-per-rem": 13,
+      // 有道翻译appKey
+  "translate.youdao.appKey": "",
+
+  // 有道翻译appSecret
+  "translate.youdao.appSecret": ""
+}
