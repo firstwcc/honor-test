@@ -1,10 +1,5 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import Main from '../views/Main.vue'
-import Home from '../views/Home.vue'
-import Article from '../views/Article.vue'
-import Hero from '../views/Hero.vue'
-
 
 Vue.use(VueRouter)
 
@@ -12,16 +7,16 @@ Vue.use(VueRouter)
   {
     path: '/',
     name: 'main',
-    component: Main,
+    component: () => import('../views/Main.vue'),
     children:[
-      {path:"/",name:"home",component:Home},
-      {path:"/article/:id",name:"article",component:Article,props:true}
+      {path:"/",name:"home",component:() => import('../views/Home/Home.vue')},
+      {path:"/article/:id",name:"article",component:() => import('../views/Article/Article.vue'),props:true}
     ]
   },
   {
     path:'/heroes/:id',
     name:"heroes",
-    component:Hero,
+    component:() => import('../views/Hero/Hero.vue'),
     props: true
 
   },
@@ -31,7 +26,7 @@ Vue.use(VueRouter)
     // route level code-splitting
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/About.vue')
+    component: () => import(/* webpackChunkName: "about" */ '../views/About/About.vue')
   }
 ]
 

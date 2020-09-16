@@ -1,7 +1,7 @@
 <template>
     <div class="page-hero" v-if="model"> 
         <div class="topbar bg-black py-2 text-white px-3 d-flex ai-center">
-            <img src="../assets/logo.png" height="30">
+            <img src="../../assets/logo.png" height="30">
             <div class="px-2 flex-1">
                 <span class="text-white">王者荣耀</span>
                 <span class="text-white ml-2">攻略站</span>
@@ -146,7 +146,7 @@ export default {
 </script>
 
 <style lang='scss' scoped>
-@import '../assets/scss/_variables.scss';
+@import '../../assets/scss/_variables.scss';
     .page-hero{
         .top{
             height: 50vw;

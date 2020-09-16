@@ -4,13 +4,13 @@
     <!-- strat-swiper -->
     <swiper  :options="swiperOptions">
       <swiper-slide>
-        <img class="w-100" src="../assets/images/2f4f389bc893dd15d99cd9221191a4f3.jpeg" alt="">
+        <img class="w-100" src="../../assets/images/2f4f389bc893dd15d99cd9221191a4f3.jpeg" alt="">
       </swiper-slide>
       <swiper-slide>
-        <img class="w-100" src="../assets/images/5fea1e59d92f410284f3a66241831e44.jpeg" alt="">
+        <img class="w-100" src="../../assets/images/5fea1e59d92f410284f3a66241831e44.jpeg" alt="">
       </swiper-slide>
       <swiper-slide>
-        <img class="w-100" src="../assets/images/a5f9e9b86f9b28d331e3a1dafed99582.jpeg" alt="">
+        <img class="w-100" src="../../assets/images/a5f9e9b86f9b28d331e3a1dafed99582.jpeg" alt="">
       </swiper-slide>
       <div class="swiper-pagination pagination-home text-right px-3 pb-2" 
       slot="pagination">
@@ -114,7 +114,6 @@ import dayjs from 'dayjs'
       async fetchHeroCats(){
         const res = await this.$http.get('heroes/list')
         this.heroCats = res.data
-        console.log(this.heroCats)
       }
     },
     created(){
@@ -125,7 +124,7 @@ import dayjs from 'dayjs'
 </script>
 
 <style lang='scss' scoped>
-@import '../assets/scss/variables';
+@import '../../assets/scss/variables';
 
   .pagination-home {
     .swiper-pagination-bullet {
